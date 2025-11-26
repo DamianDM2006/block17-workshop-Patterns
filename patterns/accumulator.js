@@ -87,6 +87,25 @@ export function countPresent(attendance) {
  * @returns {string} the complementary DNA strand
  * @returns `null` if `dna` is not a string
  */
-export function complementDNA(dna) {
-  // TODO
+export function complementDNA(dnaString) {
+
+const arrayDNA = dnaString/* .split(``); */
+const symbol = arrayDNA.valueOf();
+const complmntArray = [];
+for (let i = 0; i < arrayDNA.length; i = i + 1){
+  if (symbol[i] !== `A` && symbol[i] !== `T` && symbol[i] !== `C` && symbol[i] !== `G`)
+    return null;
+  let complmnt = undefined;
+  if (symbol[i] === `A`) complmnt = `T`
+  else
+  if (symbol[i] === `T`) complmnt = `A`
+  else
+  if (symbol[i] === `C`) complmnt = `G`
+  else
+  if (symbol[i] === `G`) complmnt = `C`;
+  complmntArray.push(complmnt);
+};
+const complmntString = complmntArray.toString();
+const complementString = complmntString.replaceAll(`,`, ``);
+return complementString;
 }
