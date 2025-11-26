@@ -54,7 +54,7 @@ export function buildNArray(n) {
  * @returns {string} the longest string in `strings`
  */
 export function getLongestString(strings) {
-  const elementArray = strings.map(element => [element]);
+  const elementArray = strings.map((element) => [element]);
   let longestArr = [];
   for (let i = 0; i < elementArray.length; i = i + 1) {
     const elementToString = elementArray[i].toString();
@@ -72,8 +72,8 @@ export function getLongestString(strings) {
 export function countPresent(attendance) {
   let countedPresent = 0;
   for (let i = 1; i < attendance.length; i = i + 1) {
-    if (attendance[i] === "true") countedPresent = countedPresent + 1
-  };
+    if (attendance[i] === "true") countedPresent = countedPresent + 1;
+  }
   return countedPresent;
 }
 
@@ -87,25 +87,27 @@ export function countPresent(attendance) {
  * @returns {string} the complementary DNA strand
  * @returns `null` if `dna` is not a string
  */
-export function complementDNA(dnaString) {
-
-const arrayDNA = dnaString/* .split(``); */
-const symbol = arrayDNA.valueOf();
-const complmntArray = [];
-for (let i = 0; i < arrayDNA.length; i = i + 1){
-  if (symbol[i] !== `A` && symbol[i] !== `T` && symbol[i] !== `C` && symbol[i] !== `G`)
-    return null;
-  let complmnt = undefined;
-  if (symbol[i] === `A`) complmnt = `T`
-  else
-  if (symbol[i] === `T`) complmnt = `A`
-  else
-  if (symbol[i] === `C`) complmnt = `G`
-  else
-  if (symbol[i] === `G`) complmnt = `C`;
-  complmntArray.push(complmnt);
-};
-const complmntString = complmntArray.toString();
-const complementString = complmntString.replaceAll(`,`, ``);
-return complementString;
+export function complementDNA(dna) {
+  const arrayDNA = dna/* .split(``) */;
+  if (typeof dna !== "string") return null;
+  const symbol = arrayDNA.valueOf();
+  const complmntArray = [];
+  for (let i = 0; i < arrayDNA.length; i = i + 1) {
+    if (
+      symbol[i] !== `A` &&
+      symbol[i] !== `T` &&
+      symbol[i] !== `C` &&
+      symbol[i] !== `G`
+    )
+      return null;
+    let complmnt = undefined;
+    if (symbol[i] === `A`) complmnt = `T`;
+    else if (symbol[i] === `T`) complmnt = `A`;
+    else if (symbol[i] === `C`) complmnt = `G`;
+    else if (symbol[i] === `G`) complmnt = `C`;
+    complmntArray.push(complmnt);
+  }
+  const complmntString = complmntArray.toString();
+  const complementString = complmntString.replaceAll(`,`, ``);
+  return complementString;
 }
