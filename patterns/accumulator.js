@@ -70,7 +70,11 @@ export function getLongestString(strings) {
  * @returns {number} the number of students present
  */
 export function countPresent(attendance) {
-  // TODO
+  let countedPresent = 0;
+  for (let i = 1; i < attendance.length; i = i + 1) {
+    if (attendance[i] === "true") countedPresent = countedPresent + 1
+  };
+  return countedPresent;
 }
 
 /**
