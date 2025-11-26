@@ -22,7 +22,16 @@ export function sumToN(n) {
  * @returns `1` if n is 0
  */
 export function factorial(n) {
-  // TODO
+  if (typeof n !== "number") return NaN;
+  if (n === 0 || n === 1) {
+    return 1;
+  } else if (n > 1) {
+    let result = n;
+    for (let i = 1; i < n; i = i + 1) {
+      result = result * (n - i);
+    }
+    return result;
+  } else return;
 }
 
 /**
@@ -32,7 +41,12 @@ export function factorial(n) {
  * @returns `[]` if n is 0 or negative
  */
 export function buildNArray(n) {
-  // TODO
+  let array = [];
+  if (typeof n !== "number") return null;
+  if (n > 0) {
+    for (let i = 1; i <= n; i = i + 1) array.push(i);
+    return array;
+  } else return array;
 }
 
 /**
@@ -40,7 +54,15 @@ export function buildNArray(n) {
  * @returns {string} the longest string in `strings`
  */
 export function getLongestString(strings) {
-  // TODO
+  const elementArray = strings.map(element => [element]);
+  let longestArr = [];
+  for (let i = 0; i < elementArray.length; i = i + 1) {
+    const elementToString = elementArray[i].toString();
+    const stringArray = elementToString.split(``);
+    if (stringArray.length >= longestArr.length) longestArr = stringArray;
+  }
+  const longest = longestArr.join(``);
+  return longest;
 }
 
 /**
