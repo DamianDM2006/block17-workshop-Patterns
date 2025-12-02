@@ -58,5 +58,13 @@ export function makeTriangle(size) {
  * @returns `0` if `letter is not a string
  */
 export function countLetter(words, letter) {
-  // TODO
-}
+  let count = 0;
+
+  words.forEach((word) => {
+    const char = Array.from(word);
+    for (let i = 0; i < char.length; i = i + 1) {
+      if (char[i] === letter) count = count + 1;
+    };
+  });
+  return count;
+};
